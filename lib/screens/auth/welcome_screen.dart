@@ -6,8 +6,8 @@ import 'package:chronicles/screens/auth/signup_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   // Logo Height and Width
-  double logoWidth = 200.0;
-  double logoHeight = 200.0;
+  double logoWidth = 100.0;
+  double logoHeight = 100.0;
 
   // Chronicles Text Style
   String chroniclesText = 'Chronicles';
@@ -66,21 +66,18 @@ class WelcomeScreen extends StatelessWidget {
                 children: [
                   ImportLogo(width: logoWidth, height: logoHeight)
                       .importLogowo(),
-                  Padding(
-                    padding: EdgeInsets.all(40.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          chroniclesText,
-                          style: chroniclesTextStyle,
-                        ),
-                        Text(
-                          writeYourJourneyText,
-                          style: writeYourJourneyTextStyle,
-                        ),
-                      ],
-                    ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        chroniclesText,
+                        style: chroniclesTextStyle,
+                      ),
+                      Text(
+                        writeYourJourneyText,
+                        style: writeYourJourneyTextStyle,
+                      ),
+                    ],
                   )
                 ],
               ),
