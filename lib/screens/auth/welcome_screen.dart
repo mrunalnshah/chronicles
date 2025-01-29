@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:chronicles/utilities/image_import/logo_import.dart';
 import 'package:chronicles/utilities/components/buttons/infinite_width_button.dart';
+import 'package:chronicles/screens/auth/login_screen.dart';
+import 'package:chronicles/screens/auth/signup_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   // Logo Height and Width
@@ -11,16 +13,20 @@ class WelcomeScreen extends StatelessWidget {
   String chroniclesText = 'Chronicles';
   final chroniclesTextStyle = TextStyle(
     height: 0.9,
-    fontSize: 60.0,
+    fontSize: 48.0,
     fontFamily: 'Abyssinica_SIL',
+    fontWeight: FontWeight.w400,
+    color: Color(0xFF4EABCC),
   );
 
   // Write Your Journey Text Style
   String writeYourJourneyText = 'Write Your Journey';
-  double writeYourJourneyLeftPadding = 70.0;
+  // double writeYourJourneyLeftPadding = 70.0;
   final writeYourJourneyTextStyle = TextStyle(
-    fontSize: 20.0,
+    fontSize: 18.0,
     fontFamily: 'Hind',
+    fontWeight: FontWeight.w500,
+    color: Color(0xFF858585),
   );
 
   // Button Label Text Style
@@ -29,14 +35,19 @@ class WelcomeScreen extends StatelessWidget {
   double googleLogoTextPartitionWidth = 20.0;
   String signInText = 'Sign In';
   String signUpText = 'Sign Up';
+  Color signInTextColor = Colors.white;
+  Color signUpTextColor = Colors.white;
   String continueWithGoogleText = 'Continue With Google';
+  Color continueWithGoogleBGColor = Colors.white;
+  Color continueWithGoogleBorderColor = Color(0xFF111519);
+  Color continueWithGoogleTextColor = Color(0xFF2C3339);
   String logoPathForGoogle = 'assets/images/logo/googleLogo.png';
 
   TextStyle buttonLabelTextStyle({required Color textColor}) {
     return TextStyle(
       color: textColor, // Dynamically set the text color
-      fontSize: 18,
-      fontWeight: FontWeight.bold,
+      fontSize: 17,
+      fontWeight: FontWeight.w400,
     );
   }
 
@@ -55,21 +66,22 @@ class WelcomeScreen extends StatelessWidget {
                 children: [
                   ImportLogo(width: logoWidth, height: logoHeight)
                       .importLogowo(),
-                  Text(
-                    chroniclesText,
-                    style: chroniclesTextStyle,
-                  ),
                   Padding(
-                    padding: EdgeInsets.only(
-                        left: writeYourJourneyLeftPadding, top: 0.0),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        writeYourJourneyText,
-                        style: writeYourJourneyTextStyle,
-                      ),
+                    padding: EdgeInsets.all(40.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          chroniclesText,
+                          style: chroniclesTextStyle,
+                        ),
+                        Text(
+                          writeYourJourneyText,
+                          style: writeYourJourneyTextStyle,
+                        ),
+                      ],
                     ),
-                  ),
+                  )
                 ],
               ),
             ),
@@ -79,26 +91,38 @@ class WelcomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 infiniteRoundWidthButton(
-                  onPress: () {},
+                  onPress: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => LoginScreen(),
+                      ),
+                    );
+                  },
                   buttonLabel: Text(
                     signInText,
-                    style: buttonLabelTextStyle(textColor: Colors.white),
+                    style: buttonLabelTextStyle(textColor: signInTextColor),
                   ),
                   verticalMargin: verticalButtonMargin,
                 ),
                 infiniteRoundWidthButton(
-                  onPress: () {},
+                  onPress: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => SignUpScreen(),
+                      ),
+                    );
+                  },
                   buttonLabel: Text(
                     signUpText,
-                    style: buttonLabelTextStyle(textColor: Colors.white),
+                    style: buttonLabelTextStyle(textColor: signUpTextColor),
                   ),
                   verticalMargin: verticalButtonMargin,
                 ),
                 infiniteRoundWidthButton(
                   onPress: () {},
-                  backgroundColor: Colors.white,
+                  backgroundColor: continueWithGoogleBGColor,
                   borderWidth: googleButtonBorderWidth,
-                  borderColor: Colors.black,
+                  borderColor: continueWithGoogleBorderColor,
                   buttonLabel: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -108,7 +132,8 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                       Text(
                         continueWithGoogleText,
-                        style: buttonLabelTextStyle(textColor: Colors.black),
+                        style: buttonLabelTextStyle(
+                            textColor: continueWithGoogleTextColor),
                       ),
                     ],
                   ),
