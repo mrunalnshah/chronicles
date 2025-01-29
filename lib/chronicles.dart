@@ -3,8 +3,6 @@
 * Date Created  : 28th January 2025
 * last Modified : 28th January 2025
 * Group         : trOlsz Group
-* Author        : Mrunal Nirajkumar Shah
-*
 * Description   : This file is the start point in this app.
 *                It runs the app and send it to the next Screen
 *                based on the authentication requirements set by

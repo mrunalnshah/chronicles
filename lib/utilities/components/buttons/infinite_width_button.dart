@@ -20,7 +20,7 @@ class infiniteRoundWidthButton extends StatelessWidget {
     this.verticalMargin = 0.0,
     this.verticalPadding = 15,
     this.horizontalPadding = 0,
-    this.elevationValue = 10,
+    this.elevationValue = 0,
     this.backgroundColor = const Color(0xFF4EABCC),
     this.circularBorderRadius = 25,
     this.borderWidth = 0,
