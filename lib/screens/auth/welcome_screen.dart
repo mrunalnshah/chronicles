@@ -6,11 +6,15 @@ import 'package:chronicles/screens/auth/signup_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   // Logo Height and Width
-  double logoWidth = 100.0;
-  double logoHeight = 100.0;
+  final double logoWidth = 135.0;
+  final double logoHeight = 135.0;
+
+  // Expanded Flex Ratio
+  final int logoChroniclesWriteYourJourneyFlex = 2;
+  final int buttonFlex = 1;
 
   // Chronicles Text Style
-  String chroniclesText = 'Chronicles';
+  final String chroniclesText = 'Chronicles';
   final chroniclesTextStyle = TextStyle(
     height: 0.9,
     fontSize: 48.0,
@@ -20,8 +24,8 @@ class WelcomeScreen extends StatelessWidget {
   );
 
   // Write Your Journey Text Style
-  String writeYourJourneyText = 'Write Your Journey';
-  // double writeYourJourneyLeftPadding = 70.0;
+  final String writeYourJourneyText = 'Write Your Journey';
+  final double writeYourJourneyLeftPadding = 5.5;
   final writeYourJourneyTextStyle = TextStyle(
     fontSize: 18.0,
     fontFamily: 'Hind',
@@ -29,25 +33,29 @@ class WelcomeScreen extends StatelessWidget {
     color: Color(0xFF858585),
   );
 
-  // Button Label Text Style
-  double verticalButtonMargin = 7.0;
-  double googleButtonBorderWidth = 2.0;
-  double googleLogoTextPartitionWidth = 20.0;
-  String signInText = 'Sign In';
-  String signUpText = 'Sign Up';
-  Color signInTextColor = Colors.white;
-  Color signUpTextColor = Colors.white;
-  String continueWithGoogleText = 'Continue With Google';
-  Color continueWithGoogleBGColor = Colors.white;
-  Color continueWithGoogleBorderColor = Color(0xFF111519);
-  Color continueWithGoogleTextColor = Color(0xFF2C3339);
-  String logoPathForGoogle = 'assets/images/logo/googleLogo.png';
+  // Button Label Values and Text Style
+  final double verticalButtonMargin = 7.0;
+  final double buttonHeight = 58.0;
+  final double googleButtonBorderWidth = 1.0;
+  final double googleLogoTextPartitionWidth = 15.0;
+  final String loginText = 'Login';
+  final String registerText = 'Register';
+  final Color loginTextColor = Color(0xFFFFFFFF);
+  final Color registerTextColor = Color(0xFFFFFFFF);
+  final Color loginRegisterHighlightColor = Color(0xFF35879F);
+  final Color loginRegisterSplashColor = Color(0xFF6BC9E2);
+  final String continueWithGoogleText = 'Continue With Google';
+  final Color continueWithGoogleBGColor = Color(0xFFFFFFFF);
+  final Color continueWithGoogleBorderColor = Color(0xFF111519);
+  final Color continueWithGoogleTextColor = Color(0xFF2C3339);
+  final String logoPathForGoogle = 'assets/images/logo/googleLogo.png';
 
   TextStyle buttonLabelTextStyle({required Color textColor}) {
     return TextStyle(
-      color: textColor, // Dynamically set the text color
+      color: textColor,
       fontSize: 17,
       fontWeight: FontWeight.w400,
+      height: 0.5,
     );
   }
 
@@ -59,7 +67,7 @@ class WelcomeScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Expanded(
-            flex: 2,
+            flex: logoChroniclesWriteYourJourneyFlex,
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -73,9 +81,13 @@ class WelcomeScreen extends StatelessWidget {
                         chroniclesText,
                         style: chroniclesTextStyle,
                       ),
-                      Text(
-                        writeYourJourneyText,
-                        style: writeYourJourneyTextStyle,
+                      Padding(
+                        padding:
+                            EdgeInsets.only(left: writeYourJourneyLeftPadding),
+                        child: Text(
+                          writeYourJourneyText,
+                          style: writeYourJourneyTextStyle,
+                        ),
                       ),
                     ],
                   )
@@ -84,6 +96,7 @@ class WelcomeScreen extends StatelessWidget {
             ),
           ),
           Expanded(
+            flex: buttonFlex,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -96,10 +109,13 @@ class WelcomeScreen extends StatelessWidget {
                     );
                   },
                   buttonLabel: Text(
-                    signInText,
-                    style: buttonLabelTextStyle(textColor: signInTextColor),
+                    loginText,
+                    style: buttonLabelTextStyle(textColor: loginTextColor),
                   ),
                   verticalMargin: verticalButtonMargin,
+                  height: buttonHeight,
+                  highlightColor: loginRegisterHighlightColor,
+                  splashColor: loginRegisterSplashColor,
                 ),
                 infiniteRoundWidthButton(
                   onPress: () {
@@ -110,10 +126,13 @@ class WelcomeScreen extends StatelessWidget {
                     );
                   },
                   buttonLabel: Text(
-                    signUpText,
-                    style: buttonLabelTextStyle(textColor: signUpTextColor),
+                    registerText,
+                    style: buttonLabelTextStyle(textColor: registerTextColor),
                   ),
                   verticalMargin: verticalButtonMargin,
+                  height: buttonHeight,
+                  highlightColor: loginRegisterHighlightColor,
+                  splashColor: loginRegisterSplashColor,
                 ),
                 infiniteRoundWidthButton(
                   onPress: () {},
@@ -135,6 +154,7 @@ class WelcomeScreen extends StatelessWidget {
                     ],
                   ),
                   verticalMargin: verticalButtonMargin,
+                  height: buttonHeight,
                 ),
               ],
             ),
