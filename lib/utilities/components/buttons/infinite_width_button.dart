@@ -9,19 +9,23 @@ class infiniteRoundWidthButton extends StatelessWidget {
   double elevationValue;
   Color backgroundColor;
   Color borderColor;
+  Color splashColor;
+  Color highlightColor;
   double circularBorderRadius;
   double borderWidth;
   Widget buttonLabel;
   void Function()? onPress;
 
   infiniteRoundWidthButton({
-    this.height = 60.0,
+    this.height = 50.0,
     this.horizontalMargin = 20.0,
     this.verticalMargin = 0.0,
     this.verticalPadding = 15,
     this.horizontalPadding = 0,
     this.elevationValue = 0,
     this.backgroundColor = const Color(0xFF4EABCC),
+    this.highlightColor = const Color(0xFFD4D4D4),
+    this.splashColor = const Color(0xFFBDBDBD),
     this.circularBorderRadius = 25,
     this.borderWidth = 0,
     this.borderColor = Colors.white,
@@ -39,6 +43,8 @@ class infiniteRoundWidthButton extends StatelessWidget {
       child: MaterialButton(
         onPressed: onPress,
         color: backgroundColor,
+        splashColor: splashColor,
+        highlightColor: highlightColor,
         elevation: elevationValue,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(circularBorderRadius),
