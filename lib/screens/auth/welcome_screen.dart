@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:chronicles/utilities/image_import/logo_import.dart';
 import 'package:chronicles/utilities/components/buttons/infinite_width_button.dart';
 import 'package:chronicles/screens/auth/login_screen.dart';
-import 'package:chronicles/screens/auth/signup_screen.dart';
+import 'package:chronicles/screens/auth/register_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   // Logo Height and Width
@@ -121,7 +121,7 @@ class WelcomeScreen extends StatelessWidget {
                   onPress: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => SignUpScreen(),
+                        builder: (context) => RegisterScreen(),
                       ),
                     );
                   },
